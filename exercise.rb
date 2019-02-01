@@ -5,18 +5,21 @@ class Exercise
   # If the word being replaced has a capital first letter, it should instead be replaced with "Marklar".
   def self.marklar(str)
     strArr = []
-    str = str.split(' ');
+    str = str.split(" ");
 
     str.each do |string|
-      if string[0] == string[0].upcase && string.length >4
+      if string[0] == string[0].upcase && string.length > 4 
         strArr.push('Marklar')
+      elsif string.length > 4 && string.include?(".")
+        strArr.push('marklar.')
+      elsif string.length > 4 && string.include?("?")
+        strArr.push('marklar?')
       elsif string.length > 4 
         strArr.push('marklar')
       else
         strArr.push(string) 
       end
     end
-
     return strArr.join(" ")
   end
 
